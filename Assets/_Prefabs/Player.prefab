@@ -109,4 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  bullet: {fileID: 1898628258685502477, guid: 2f60a448ce16e624bbad1254371ada45, type: 3}
+  fireRate: 0.3
+  playerBullet: {fileID: 0}

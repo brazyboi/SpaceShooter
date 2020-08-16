@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class BulletEnemyScript : MonoBehaviour
 {
     public float speedX = 0;
-    public float speedY = 3.0f;
+    public float speedY = -3.0f;
     Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -28,8 +28,7 @@ public class BulletScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
-    }
 
+    }
 
 }

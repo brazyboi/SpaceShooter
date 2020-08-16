@@ -6,11 +6,14 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public float moveSpeed = 10.0f;
-    public GameObject bullet;
+    public float fireRate = 0.3f;
+    public GameObject playerBullet;
+    Boolean firing = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(Fire());
     }
 
     // Update is called once per frame
@@ -25,17 +28,19 @@ public class PlayerScript : MonoBehaviour
         transform.Translate(new Vector3(horizontalInput, 0, verticalInput) * moveSpeed * Time.deltaTime);
         //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Fire();
-        }
-        
     }
 
-    void Fire() {
-        
-        Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
-        bullet.transform.position = gameObject.transform.position;
+    IEnumerator Fire()
+    {
+
+        while (firing)
+        {
+            Instantiate(playerBullet, gameObject.transform.position, Quaternion.identity);
+            playerBullet.transform.position = gameObject.transform.position;
+
+            yield return new WaitForSeconds(fireRate);
+
+        }
     }
 
 }

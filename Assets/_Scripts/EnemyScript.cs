@@ -6,13 +6,21 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public float speed = 1.0f;
+    public float fireRate = 0.5f;
+
     int direction = 1;
+    Boolean firing = true;
     Camera cam;
+    public GameObject enemyBullet;
+    AudioSource bulletEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
+        bulletEnemy = GetComponent<AudioSource>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        StartCoroutine(Fire());
     }
 
     // Update is called once per frame
@@ -40,6 +48,20 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }   
+    }
+
+    IEnumerator Fire()
+    {
+
+        while (firing)
+        {
+            Instantiate(enemyBullet, gameObject.transform.position, Quaternion.identity);
+            enemyBullet.transform.position = gameObject.transform.position;
+            bulletEnemy.Play(0);
+
+            yield return new WaitForSeconds(fireRate);
+
+        }
+    }
 
 }
