@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -8,9 +9,11 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed = 10.0f;
     public float fireRate = 1.0f;
     public int numOfPowerUps = 0;
+    public GameObject leftgun;
+    public GameObject rightgun;
 
     public GameObject playerBullet;
-    Boolean firing = true;
+    int firing = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -45,35 +48,39 @@ public class PlayerScript : MonoBehaviour
     IEnumerator Fire()
     {
 
-        while (firing)
+        while (firing == 1)
         {
-            Vector3 pos = gameObject.transform.position;
 
-            if (numOfPowerUps == 1)
-            {
-                yield return new WaitForSeconds(fireRate / 2);
-            }
-            else if (numOfPowerUps ==2)
-            {
-                yield return new WaitForSeconds(fireRate / 4);
-            }
-            else if (numOfPowerUps > 2)
-            {
-                pos.x = gameObject.transform.position.x + 1;
-                Vector3 doublePos = new Vector3();
-                doublePos.x = gameObject.transform.position.x - 1;
+            float waitTime = fireRate;
+            int numOfGuns = 1;
 
-
-                Instantiate(playerBullet, doublePos, Quaternion.identity);
-            }
-            else
+            switch (numOfPowerUps)
             {
-                yield return new WaitForSeconds(fireRate);
+                case 0:
+                case 1:
+                    waitTime = fireRate / 2;
+                    break;
+                case 2:
+                    waitTime = fireRate / 4;
+                    break;
+                default:
+                    waitTime = fireRate / 4;
+                    numOfGuns = 2;
+                    break;
             }
 
-            Instantiate(playerBullet, gameObject.transform.position, Quaternion.identity);
+            if (numOfGuns == 2)
+            {
+                Instantiate(playerBullet, leftgun.transform.position, Quaternion.identity);
+                Instantiate(playerBullet, rightgun.transform.position, Quaternion.identity);
+
+            } else {
+                Instantiate(playerBullet, gameObject.transform.position, Quaternion.identity);
+                
+            }
+
             playerBullet.transform.position = gameObject.transform.position;
-
+            yield return new WaitForSeconds(waitTime);
         }
     }
 
