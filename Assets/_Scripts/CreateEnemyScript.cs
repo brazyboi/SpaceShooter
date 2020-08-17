@@ -7,7 +7,7 @@ public class CreateEnemyScript : MonoBehaviour
     public GameObject enemy;
     public int xPos;
     public int enemyCount =0;
-    private float waitTime = 5.0f;
+    public float waitTime = 5.0f;
 
     // Start is called before the first frame update
     void Start()
