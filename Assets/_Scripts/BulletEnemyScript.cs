@@ -24,7 +24,7 @@ public class BulletEnemyScript : MonoBehaviour
         gameObject.transform.position = pos;
 
         Vector3 screenPos = cam.WorldToScreenPoint(gameObject.transform.position);
-        if (screenPos.y > Screen.height)
+        if (screenPos.y < 0)
         {
             Destroy(gameObject);
         }

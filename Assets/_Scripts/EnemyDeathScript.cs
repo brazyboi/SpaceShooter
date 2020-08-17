@@ -4,23 +4,40 @@ using UnityEngine;
 
 public class EnemyDeathScript : MonoBehaviour
 {
-    AudioSource enemyDeath;
+    public GameObject explosion;
+    public Transform plane;
+    public int enemyHealth;
 
     void Start()
     {
-        enemyDeath = GetComponent<AudioSource>();
+    
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            if (!enemyDeath.isPlaying)
+            enemyHealth--;
+           
+            if (enemyHealth <1)
             {
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
+                enemyDeath();
             }
 
+            Destroy(collision.gameObject);  
+
         }
+
     }
+
+    void enemyDeath()
+    {
+        GetComponent<Collider>().enabled = false;
+        Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject);
+ 
+
+    }
+
+
 }

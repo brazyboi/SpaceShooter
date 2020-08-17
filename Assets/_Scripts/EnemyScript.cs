@@ -12,12 +12,10 @@ public class EnemyScript : MonoBehaviour
     Boolean firing = true;
     Camera cam;
     public GameObject enemyBullet;
-    AudioSource bulletEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        bulletEnemy = GetComponent<AudioSource>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         StartCoroutine(Fire());
@@ -53,15 +51,24 @@ public class EnemyScript : MonoBehaviour
     IEnumerator Fire()
     {
 
-        while (firing)
+        while (firing)  
         {
+            if (!this.gameObject.activeSelf)
+            {
+                break;
+            }
+
             Instantiate(enemyBullet, gameObject.transform.position, Quaternion.identity);
             enemyBullet.transform.position = gameObject.transform.position;
-            bulletEnemy.Play(0);
 
             yield return new WaitForSeconds(fireRate);
 
         }
+    }
+
+    void OnDestroy()
+    {
+        StopCoroutine(Fire());    
     }
 
 }
