@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Bullet
   - BulletEnemy
+  - Projectile
+  - Bonus
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Play
   - 
   - 
   - 
@@ -43,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Play
+    uniqueID: 2633640877
     locked: 0
