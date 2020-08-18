@@ -11,3 +11,4 @@ TO DO:
 - More powerups 
 - leaderboard
 - add more types of planes 
+- Add moving planet
