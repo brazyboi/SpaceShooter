@@ -23,7 +23,7 @@ public class CreateEnemyScript : MonoBehaviour
 
             Instantiate(enemy, new Vector3(xPos, 7, 0), Quaternion.identity);
             yield return new WaitForSeconds(waitTime);
-            enemyCount ++;
+            
 
         }
     }

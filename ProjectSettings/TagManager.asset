@@ -9,6 +9,8 @@ TagManager:
   - BulletEnemy
   - Projectile
   - Bonus
+  - PowerUp
+  - GameManager
   layers:
   - Default
   - TransparentFX

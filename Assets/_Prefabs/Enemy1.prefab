@@ -162,8 +162,6 @@ MonoBehaviour:
     type: 3}
   plane: {fileID: 3139837428046298097}
   enemyHealth: 2
-  scoreCanvas: {fileID: 0}
-  scoreDisplay: {fileID: 0}
   score: 0
 --- !u!54 &9094961857331908271
 Rigidbody:

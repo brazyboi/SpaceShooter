@@ -4,21 +4,29 @@ using System.Collections.Generic;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : GameBase
 {
     public float moveSpeed = 10.0f;
     public float fireRate = 1.0f;
     public int numOfPowerUps = 0;
+    public int numOfBombs = 0;
+    public int hp = 10;
+
     public GameObject leftgun;
     public GameObject rightgun;
-
+    public GameObject centerGun;
     public GameObject playerBullet;
-    int firing = 1;
+    public GameObject explosion;
+
+    public Transform plane;
+  
+    Boolean firing = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Fire());
+        base.init();
+         StartCoroutine(Fire());
     }
 
     // Update is called once per frame
@@ -43,12 +51,47 @@ public class PlayerScript : MonoBehaviour
             Destroy(collision.gameObject);
 
         }
+
+        if (collision.gameObject.tag == "BulletEnemy")
+        {
+            hp--;
+
+            if (hp < 1)
+            {
+                playerDeath();
+            }
+
+            Destroy(collision.gameObject);
+
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            hp = hp - 5;
+
+            if (hp < 1)
+            {
+                playerDeath();
+            }
+
+            Destroy(collision.gameObject);
+
+        }
+
+    }
+
+    void playerDeath()
+    {
+        manager.onPlayerDeath();
+        GetComponent<Collider>().enabled = false;
+        Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject); 
     }
 
     IEnumerator Fire()
     {
 
-        while (firing == 1)
+        while (firing)
         {
 
             float waitTime = fireRate;
@@ -63,19 +106,36 @@ public class PlayerScript : MonoBehaviour
                 case 2:
                     waitTime = fireRate / 4;
                     break;
-                default:
+                case 3:
                     waitTime = fireRate / 4;
                     numOfGuns = 2;
                     break;
+                case 4:
+                    waitTime = fireRate / 6;
+                    numOfGuns = 2;
+                    break;
+                case 5:
+                    waitTime = fireRate / 4;
+                    numOfGuns = 3;
+                    break;
+                default:
+                    waitTime = fireRate / 6;
+                    numOfGuns = 3;
+                    break;
             }
 
-            if (numOfGuns == 2)
+            if (numOfGuns >= 2)
             {
                 Instantiate(playerBullet, leftgun.transform.position, Quaternion.identity);
                 Instantiate(playerBullet, rightgun.transform.position, Quaternion.identity);
 
+                if (numOfGuns == 3)
+                {
+                    Instantiate(playerBullet, centerGun.transform.position, Quaternion.identity);
+                }
+
             } else {
-                Instantiate(playerBullet, gameObject.transform.position, Quaternion.identity);
+                Instantiate(playerBullet, centerGun.transform.position, Quaternion.identity);
                 
             }
 
