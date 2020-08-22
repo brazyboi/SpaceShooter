@@ -10,7 +10,6 @@ public class PlayerScript : GameBase
     public float fireRate = 1.0f;
     public int numOfPowerUps = 0;
     public int numOfBombs = 0;
-    public int hp = 10;
 
     public GameObject leftgun;
     public GameObject rightgun;
@@ -25,7 +24,7 @@ public class PlayerScript : GameBase
     // Start is called before the first frame update
     void Start()
     {
-        base.init();
+         base.init();
          StartCoroutine(Fire());
     }
 
@@ -54,9 +53,9 @@ public class PlayerScript : GameBase
 
         if (collision.gameObject.tag == "BulletEnemy")
         {
-            hp--;
+            manager.hp--;
 
-            if (hp < 1)
+            if (manager.hp < 1)
             {
                 playerDeath();
             }
@@ -67,9 +66,9 @@ public class PlayerScript : GameBase
 
         if (collision.gameObject.tag == "Enemy")
         {
-            hp = hp - 5;
+            manager.hp = manager.hp - 5;
 
-            if (hp < 1)
+            if (manager.hp < 1)
             {
                 playerDeath();
             }

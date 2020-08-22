@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyDeathScript : MonoBehaviour
+public class EnemyDeathScript : GameBase
 {
     public GameObject explosion;
     public Transform plane;
     public int enemyHealth;
 
-    public int score = 0;
-
     void Start()
     {
-    }
-
-    void Update()
-    {
+        base.init();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -27,7 +22,7 @@ public class EnemyDeathScript : MonoBehaviour
 
             if (enemyHealth < 1)
             {
-                score++;
+                manager.score++;
                 enemyDeath();
             }
 
@@ -41,7 +36,7 @@ public class EnemyDeathScript : MonoBehaviour
 
             if (enemyHealth < 1)
             {
-                score++;
+                manager.score++;
                 enemyDeath();
             }
 

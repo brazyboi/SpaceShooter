@@ -3,18 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPowerUpScript : MonoBehaviour
+public class SpawnPowerUpScript : GameBase
 {
 
     public GameObject powerup;
     public int xPos;
     public float waitTime = 5.0f;
 
-    Boolean running = true;
-
     // Start is called before the first frame update
     void Start()
     {
+        base.init();
         StartCoroutine(powerupSpawn());
     }
 
@@ -26,7 +25,7 @@ public class SpawnPowerUpScript : MonoBehaviour
 
     IEnumerator powerupSpawn()
     {
-        while (running)
+        while (manager.running)
         {
             yield return new WaitForSeconds(waitTime);
             xPos = UnityEngine.Random.Range(-Screen.width / 100, Screen.width / 100);
