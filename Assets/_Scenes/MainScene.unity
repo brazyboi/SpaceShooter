@@ -641,6 +641,80 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1001 &1129101800
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5481661083141184789, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536960477900329908, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_Name
+      value: MissilePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.6251019
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5333495
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869643956163175862, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb, type: 3}
 --- !u!1 &1160312243
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  numOfPlanes: 1
+  hp: 1
+  numOfPlanes: 0
   running: 1
   playerPrefab: {fileID: 5162909563815682302, guid: c297f845b4a161b4bb5cca7040ad2543,
     type: 3}
@@ -715,6 +790,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1345123113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1345123114}
+  m_Layer: 0
+  m_Name: FakeMissileTarget
+  m_TagString: FakeMissileTarget
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1345123114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345123113}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.67, y: 8.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1347023183
 GameObject:
   m_ObjectHideFlags: 0

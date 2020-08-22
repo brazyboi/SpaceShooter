@@ -20,7 +20,7 @@ public class CreateEnemyScript : GameBase
     {
         while (manager.running)
         {
-            xPos = UnityEngine.Random.Range(-Screen.width/100, Screen.width/100);
+            xPos = UnityEngine.Random.Range(-Screen.width/100 + 1, Screen.width/100 - 1);
 
             Instantiate(enemy, new Vector3(xPos, 7, 0), Quaternion.identity);
             yield return new WaitForSeconds(waitTime);

@@ -15,6 +15,7 @@ public class PlayerScript : GameBase
     public GameObject rightgun;
     public GameObject centerGun;
     public GameObject playerBullet;
+    public GameObject missile;
     public GameObject explosion;
 
     public Transform plane;
@@ -24,8 +25,9 @@ public class PlayerScript : GameBase
     // Start is called before the first frame update
     void Start()
     {
-         base.init();
-         StartCoroutine(Fire());
+        base.init();
+        StartCoroutine(Fire());
+        StartCoroutine(fireMissile());
     }
 
     // Update is called once per frame
@@ -140,6 +142,15 @@ public class PlayerScript : GameBase
 
             playerBullet.transform.position = gameObject.transform.position;
             yield return new WaitForSeconds(waitTime);
+        }
+    }
+
+    IEnumerator fireMissile()
+    {
+        while (firing)
+        {
+            Instantiate(missile, centerGun.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(5.0f);
         }
     }
 

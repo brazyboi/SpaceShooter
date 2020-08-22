@@ -180,12 +180,12 @@ MonoBehaviour:
   fireRate: 1
   numOfPowerUps: 0
   numOfBombs: 0
-  hp: 3
   leftgun: {fileID: 8626267896621316694}
   rightgun: {fileID: 8310197101385215626}
   centerGun: {fileID: 692504486125578547}
   playerBullet: {fileID: 1898628258685502477, guid: 2f60a448ce16e624bbad1254371ada45,
     type: 3}
+  missile: {fileID: 6536960477900329908, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb, type: 3}
   explosion: {fileID: 1053967039506962, guid: af893c0ec46a64cd6a9ff4f153295f0e, type: 3}
   plane: {fileID: 5162909563815682275}
 --- !u!54 &1022227217373466567

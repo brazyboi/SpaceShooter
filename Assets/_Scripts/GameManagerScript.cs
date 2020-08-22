@@ -16,11 +16,12 @@ public class GameManagerScript : MonoBehaviour
     public GameObject menuPrefab;
     public GameObject inGamePrefab;
 
+    private GameObject inGame;
+
     // Start is before the first frame update
     void Start()
     {
-        Instantiate(inGamePrefab);
-        Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        gameStart();    
     }
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class GameManagerScript : MonoBehaviour
     {
         running = false;
         Instantiate(gameOverPrefab);
+        Destroy(inGame);
     }
 
     public void startMenu()
@@ -42,7 +44,10 @@ public class GameManagerScript : MonoBehaviour
 
     public void gameStart()
     {
-        Instantiate(inGamePrefab);
+        inGame = Instantiate(inGamePrefab);
+        hp = 10;
+        score = 0;
+        Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     public void onPlayerDeath()

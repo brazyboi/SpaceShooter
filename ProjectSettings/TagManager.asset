@@ -11,6 +11,8 @@ TagManager:
   - Bonus
   - PowerUp
   - GameManager
+  - Missile
+  - FakeMissileTarget
   layers:
   - Default
   - TransparentFX
