@@ -179,7 +179,7 @@ MonoBehaviour:
   moveSpeed: 10
   fireRate: 1
   missileFireRate: 2
-  numOfPowerUps: 6
+  numOfPowerUps: 0
   numOfBombs: 0
   leftgun: {fileID: 8626267896621316694}
   rightgun: {fileID: 8310197101385215626}
