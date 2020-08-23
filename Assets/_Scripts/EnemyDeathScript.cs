@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class EnemyDeathScript : GameBase
 {
     public GameObject explosion;
+    public GameObject hitEffectBullet;
+
     public Transform plane;
     public int enemyHealth;
 
@@ -18,6 +20,7 @@ public class EnemyDeathScript : GameBase
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            Instantiate(hitEffectBullet, gameObject.transform.position, Quaternion.identity);
             enemyHealth--;
 
             if (enemyHealth < 1)
@@ -62,7 +65,6 @@ public class EnemyDeathScript : GameBase
         GetComponent<Collider>().enabled = false;
         Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
- 
 
     }
 

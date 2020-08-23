@@ -54,7 +54,7 @@ public class GameManagerScript : MonoBehaviour
 
         running = true;
         inGame = Instantiate(inGamePrefab);
-        hp = 10;
+        hp = 20;
         score = 0;
         Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }

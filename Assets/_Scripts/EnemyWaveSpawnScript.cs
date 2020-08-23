@@ -29,6 +29,7 @@ public class EnemyWaveSpawnScript : GameBase
     {
         while (manager.running)
         {
+            yield return new WaitForSeconds(waveWaitTime);
             GameObject wave;
             int rand = Random.Range(1, 6);
             switch (rand)
@@ -54,8 +55,6 @@ public class EnemyWaveSpawnScript : GameBase
             }
 
             Instantiate(wave, new Vector3(0, 0, 0), Quaternion.identity);
-            yield return new WaitForSeconds(waveWaitTime);
-
 
         }
     }

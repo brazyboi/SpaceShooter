@@ -79,6 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 8063656136720398738, guid: 611498ec4fd8b486b94c64da5195c7cd,
     type: 3}
+  hitEffectBullet: {fileID: 1410180399615676799, guid: 02e6b1aa2dac6634396a549ff44b1cad,
+    type: 3}
   plane: {fileID: 2768855829269949368}
   enemyHealth: 4
 --- !u!54 &1580972833047223034

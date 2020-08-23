@@ -9,7 +9,7 @@ public class VisualEffect : MonoBehaviour {
 
     [Tooltip("the time after object will be destroyed")]
     public float destructionTime;
-
+    
     private void OnEnable()
     {
         StartCoroutine(Destruction()); //launching the timer of destruction
