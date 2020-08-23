@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerup: {fileID: 5139336235507768915, guid: a7f5c426efbb6e045a9ab74767b086df, type: 3}
   xPos: 0
-  waitTime: 10
+  waitTime: 8
 --- !u!4 &371766345
 Transform:
   m_ObjectHideFlags: 0
@@ -350,8 +350,9 @@ MonoBehaviour:
   enemy1: {fileID: 8020552535674459734, guid: fab6851c23f45a8439ae5c6a709fe8c6, type: 3}
   enemy2: {fileID: 327021130165535235, guid: eb090fd2dae578e488d1ac42926e8a7b, type: 3}
   enemy3: {fileID: 8736070628504850893, guid: c3f4e3e3ea4a5b94195e1547030ab8b7, type: 3}
-  boss: {fileID: 0}
-  waitTime: 3
+  boss: {fileID: 3272202770419028337, guid: cf66956c78ef3dd4e92174c4fcf28011, type: 3}
+  waitTime: 3.5
+  bossWaitTime: 60
 --- !u!4 &706441588
 Transform:
   m_ObjectHideFlags: 0

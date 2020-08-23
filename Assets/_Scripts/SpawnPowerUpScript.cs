@@ -28,7 +28,7 @@ public class SpawnPowerUpScript : GameBase
         while (manager.running)
         {
             yield return new WaitForSeconds(waitTime);
-            xPos = UnityEngine.Random.Range(-Screen.width / 100, Screen.width / 100);
+            xPos = UnityEngine.Random.Range(-Screen.width / 100 + 1, Screen.width / 100-1);
 
             Instantiate(powerup, new Vector3(xPos, 7, 0), Quaternion.identity);
         }

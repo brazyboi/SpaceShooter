@@ -19,7 +19,7 @@ public class CreateEnemyScript : GameBase
     {
         base.init();
         StartCoroutine(enemySpawn());
-        /*StartCoroutine(bossSpawn());*/
+        StartCoroutine(bossSpawn());
     }
 
     IEnumerator enemySpawn()
@@ -49,13 +49,13 @@ public class CreateEnemyScript : GameBase
         }
     }
 
-    /*IEnumerator bossSpawn()
+    IEnumerator bossSpawn()
     {
         while (manager.running)
         {
-            Instantiate(boss, new Vector3(0, 7, 0), Quaternion.identity);
             yield return new WaitForSeconds(bossWaitTime);
+            Instantiate(boss, new Vector3(0, 7, 0), Quaternion.identity);   
         }
-    }*/
+    }
 
 }

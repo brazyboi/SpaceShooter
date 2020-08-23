@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bce8ed9b64f39c44bdd9d3b9f6debe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 8020552535674459734, guid: fab6851c23f45a8439ae5c6a709fe8c6, type: 3}
+  enemy: {fileID: 327021130165535235, guid: eb090fd2dae578e488d1ac42926e8a7b, type: 3}
   count: 11
   speed: 30
   timeBetween: 0.5

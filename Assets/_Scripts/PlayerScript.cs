@@ -123,21 +123,25 @@ public class PlayerScript : GameBase
                     waitTime = fireRate / 6;
                     numOfGuns = 2;
                     numOfMissiles = 1;
+                    missileFireRate = 1.5f;
                     break; 
                 case 6:
                     waitTime = fireRate / 4;
                     numOfGuns = 3;
                     numOfMissiles = 1;
+                    missileFireRate = 1.5f;
                     break;
                 case 7:
                     waitTime = fireRate / 4;
                     numOfGuns = 3;
                     numOfMissiles = 2;
+                    missileFireRate = 1.5f;
                     break;
                 default:
                     waitTime = fireRate / 6;
                     numOfGuns = 3;
                     numOfMissiles = 2;
+                    missileFireRate = 1.25f;
                     break;
             }
 
