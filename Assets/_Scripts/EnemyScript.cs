@@ -46,6 +46,11 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (screenPos.x > Screen.width || screenPos.x < -Screen.width)
+        {
+            firing = false;
+        }
+
     }
 
     IEnumerator Fire()

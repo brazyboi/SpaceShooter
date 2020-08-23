@@ -178,7 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   fireRate: 1
-  numOfPowerUps: 0
+  missileFireRate: 2
+  numOfPowerUps: 6
   numOfBombs: 0
   leftgun: {fileID: 8626267896621316694}
   rightgun: {fileID: 8310197101385215626}

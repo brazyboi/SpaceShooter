@@ -30,6 +30,19 @@ public class EnemyDeathScript : GameBase
 
         }
 
+        if (collision.gameObject.tag == "Missile")
+        {
+            enemyHealth = enemyHealth - 3;
+            if (enemyHealth < 1)
+            {
+                manager.score++;
+                enemyDeath();
+            }
+
+            Destroy(collision.gameObject);
+
+        }
+
         if (collision.gameObject.tag == "Player")
         {
             enemyHealth = enemyHealth - 5;

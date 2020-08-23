@@ -8,8 +8,10 @@ public class PlayerScript : GameBase
 {
     public float moveSpeed = 10.0f;
     public float fireRate = 1.0f;
+    public float missileFireRate = 1.0f;
     public int numOfPowerUps = 0;
     public int numOfBombs = 0;
+    int numOfMissiles = 0;
 
     public GameObject leftgun;
     public GameObject rightgun;
@@ -105,23 +107,37 @@ public class PlayerScript : GameBase
                     waitTime = fireRate / 2;
                     break;
                 case 2:
-                    waitTime = fireRate / 4;
+                    waitTime = fireRate / 2;
+                    numOfMissiles = 1;
                     break;
                 case 3:
                     waitTime = fireRate / 4;
-                    numOfGuns = 2;
+                    numOfMissiles = 1;
                     break;
                 case 4:
-                    waitTime = fireRate / 6;
+                    waitTime = fireRate / 4;
                     numOfGuns = 2;
+                    numOfMissiles = 1;
                     break;
                 case 5:
+                    waitTime = fireRate / 6;
+                    numOfGuns = 2;
+                    numOfMissiles = 1;
+                    break;
+                case 6:
                     waitTime = fireRate / 4;
                     numOfGuns = 3;
+                    numOfMissiles = 1;
+                    break;
+                case 7:
+                    waitTime = fireRate / 4;
+                    numOfGuns = 3;
+                    numOfMissiles = 2;
                     break;
                 default:
                     waitTime = fireRate / 6;
                     numOfGuns = 3;
+                    numOfMissiles = 2;
                     break;
             }
 
@@ -149,8 +165,15 @@ public class PlayerScript : GameBase
     {
         while (firing)
         {
-            Instantiate(missile, centerGun.transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(5.0f);
+            if (numOfMissiles == 1)
+            {
+                Instantiate(missile, centerGun.transform.position, Quaternion.identity);
+            } else if (numOfMissiles == 2)
+            {
+                Instantiate(missile, leftgun.transform.position, Quaternion.identity);
+                Instantiate(missile, rightgun.transform.position, Quaternion.identity);
+            } 
+            yield return new WaitForSeconds(missileFireRate);
         }
     }
 

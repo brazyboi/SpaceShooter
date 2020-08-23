@@ -35,6 +35,13 @@ public class GameManagerScript : MonoBehaviour
         running = false;
         Instantiate(gameOverPrefab);
         Destroy(inGame);
+        var arr = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Enemy").Length; i++)
+        {
+            Destroy(arr[i]);
+        }
+
+        Destroy(GameObject.FindGameObjectWithTag("PowerUp"));
     }
 
     public void startMenu()
@@ -44,6 +51,8 @@ public class GameManagerScript : MonoBehaviour
 
     public void gameStart()
     {
+
+        running = true;
         inGame = Instantiate(inGamePrefab);
         hp = 10;
         score = 0;

@@ -11,19 +11,54 @@ public class MissileFollowObject : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("FakeMissileTarget");
+        target = GameObject.FindGameObjectWithTag("Enemy");
+        if (target == null)
+        {
 
+            target = GameObject.FindGameObjectWithTag("FakeMissileTarget");
+
+        } 
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        findEnemy();
+        
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
         Vector3 vectorToTarget = target.transform.position - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+
         print(angle);
+
+        if (angle < 90 && angle > -90)
+        {
+            angle = angle - 90;
+        }
+        else if (angle == 90)
+        {
+            angle = 0;
+        } 
+
         Quaternion qt = Quaternion.AngleAxis(angle, Vector3.forward);
+
         transform.rotation = Quaternion.RotateTowards(transform.rotation, qt, Time.deltaTime * rotationSpeed);
-        
+
     }
+
+    void findEnemy()
+    {
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Enemy");
+        }
+        if (target == null)
+        {
+
+            target = GameObject.FindGameObjectWithTag("FakeMissileTarget");
+
+        }
+    }
+
 }

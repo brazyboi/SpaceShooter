@@ -2,21 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Security.Policy;
 
 /// <summary>
 /// This script generates an enemy wave. It defines how many enemies will be emerging, their speed and emerging interval. 
-/// It also defines their shooting mode. It defines their moving path.
-/// </summary>
-[System.Serializable]
-public class Shooting
-{
-    [Range(0,100)]
-    [Tooltip("probability with which the ship of this wave will make a shot")]
-    public int shotChance;
-
-    [Tooltip("min and max time from the beginning of the path when the enemy can make a shot")]
-    public float shotTimeMin, shotTimeMax;
-}
 
 public class Wave : MonoBehaviour {
 
@@ -44,11 +33,11 @@ public class Wave : MonoBehaviour {
 
     [Tooltip("color of the path in the Editor")]
     public Color pathColor = Color.yellow;
-    public Shooting shooting;
 
     [Tooltip("if testMode is marked the wave will be re-generated after 3 sec")]
     public bool testMode;
     #endregion
+
 
     private void Start()
     {
@@ -66,11 +55,7 @@ public class Wave : MonoBehaviour {
             followComponent.speed = speed;        
             followComponent.rotationByPath = rotationByPath;
             followComponent.loop = Loop;
-            followComponent.SetPath(); 
-            Enemy enemyComponent = newEnemy.GetComponent<Enemy>();  
-            enemyComponent.shotChance = shooting.shotChance; 
-            enemyComponent.shotTimeMin = shooting.shotTimeMin; 
-            enemyComponent.shotTimeMax = shooting.shotTimeMax;
+            followComponent.SetPath();  
             newEnemy.SetActive(true);      
             yield return new WaitForSeconds(timeBetween); 
         }
