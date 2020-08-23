@@ -188,6 +188,10 @@ MonoBehaviour:
     type: 3}
   missile: {fileID: 6536960477900329908, guid: 9879ad7bf0c1b3e40b9b2a6651dc8eeb, type: 3}
   explosion: {fileID: 1053967039506962, guid: af893c0ec46a64cd6a9ff4f153295f0e, type: 3}
+  hitEffect: {fileID: 1410180399615676799, guid: 02e6b1aa2dac6634396a549ff44b1cad,
+    type: 3}
+  hitEffect1: {fileID: 7039365272472429018, guid: 90c9aafc11778454c8b5809156efccb7,
+    type: 3}
   plane: {fileID: 5162909563815682275}
 --- !u!54 &1022227217373466567
 Rigidbody:

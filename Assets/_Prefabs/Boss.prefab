@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 684165315566293035}
   - component: {fileID: 6922021878059257763}
   - component: {fileID: 4328032373840202120}
-  - component: {fileID: 5599069421741949408}
+  - component: {fileID: 1087499617952575381}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -0.25
-  fireRate: 1.5
-  enemyBullet: {fileID: 4836163810512927894, guid: 0e9d72cf7c0fb4e449137d3d43380b16,
+  fireRate: 0.35
+  enemyBullet: {fileID: 8082164027651439524, guid: ab052f37fc1371148afe9f6deb253c18,
     type: 3}
 --- !u!114 &6922021878059257763
 MonoBehaviour:
@@ -99,23 +99,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &5599069421741949408
+--- !u!114 &1087499617952575381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3272202770419028337}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb55924fc8ef444409698fed6ae69676, type: 3}
+  m_Script: {fileID: 11500000, guid: 79dbfdc16fc99fa49a217d39a1a33ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: []
-  speed: 0
-  rotationByPath: 0
-  loop: 0
-  movingIsActive: 0
+  fireRate: 3
+  missile: {fileID: 6879137732244305757, guid: 9773f5ea050c17c4baedc301c36046d7, type: 3}
 --- !u!1 &7772272032669334448
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,6 +54,10 @@ public class CreateEnemyScript : GameBase
         while (manager.running)
         {
             yield return new WaitForSeconds(bossWaitTime);
+            if (!manager.running)
+            {
+                break;
+            }
             Instantiate(boss, new Vector3(0, 7, 0), Quaternion.identity);   
         }
     }

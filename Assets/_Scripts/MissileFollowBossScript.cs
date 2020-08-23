@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// ? 2017 TheFlyingKeyboard and released under MIT License
-// theflyingkeyboard.net
-public class MissileFollowObject : MonoBehaviour
+
+public class MissileFollowBossScript : MonoBehaviour
 {
     public GameObject target;
     public float moveSpeed;
@@ -11,21 +10,21 @@ public class MissileFollowObject : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Enemy");
+        target = GameObject.FindGameObjectWithTag("Player");
         if (target == null)
         {
 
             target = GameObject.FindGameObjectWithTag("FakeMissileTarget");
 
-        } 
-        
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        findEnemy();
-        
+        findPlayer();
+
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
         Vector3 vectorToTarget = target.transform.position - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
@@ -37,7 +36,7 @@ public class MissileFollowObject : MonoBehaviour
         else if (angle == 90)
         {
             angle = 0;
-        } 
+        }
 
         Quaternion qt = Quaternion.AngleAxis(angle, Vector3.forward);
 
@@ -45,12 +44,8 @@ public class MissileFollowObject : MonoBehaviour
 
     }
 
-    void findEnemy()
+    void findPlayer()
     {
-        if (target == null)
-        {
-            target = GameObject.FindGameObjectWithTag("Enemy");
-        }
         if (target == null)
         {
 
@@ -58,5 +53,4 @@ public class MissileFollowObject : MonoBehaviour
 
         }
     }
-
 }

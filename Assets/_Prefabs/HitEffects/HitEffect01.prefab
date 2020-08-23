@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1249458861631867231}
   - component: {fileID: 1300708517306630729}
   - component: {fileID: 538117869933602668}
+  - component: {fileID: -5582977978610478961}
   m_Layer: 0
   m_Name: HitEffect01
   m_TagString: Untagged
@@ -4839,3 +4840,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea972e8c043bdd4eb40551f59064c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5582977978610478961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410180399615676799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b3348a06cc9d74bad659e058fc119f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeDuration: 3

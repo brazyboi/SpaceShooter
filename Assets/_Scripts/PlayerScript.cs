@@ -19,6 +19,8 @@ public class PlayerScript : GameBase
     public GameObject playerBullet;
     public GameObject missile;
     public GameObject explosion;
+    public GameObject hitEffect;
+    public GameObject hitEffect1;
 
     public Transform plane;
   
@@ -58,6 +60,7 @@ public class PlayerScript : GameBase
         if (collision.gameObject.tag == "BulletEnemy")
         {
             manager.hp--;
+            Instantiate(hitEffect, gameObject.transform.position, Quaternion.identity);
 
             if (manager.hp < 1)
             {
@@ -71,6 +74,34 @@ public class PlayerScript : GameBase
         if (collision.gameObject.tag == "Enemy")
         {
             manager.hp = manager.hp - 5;
+
+            if (manager.hp < 1)
+            {
+                playerDeath();
+            }
+
+            Destroy(collision.gameObject);
+
+        }
+
+        if (collision.gameObject.tag == "BulletBoss")
+        {
+            manager.hp = manager.hp - 3;
+            Instantiate(hitEffect, gameObject.transform.position, Quaternion.identity);
+
+            if (manager.hp < 1)
+            {
+                playerDeath();
+            }
+
+            Destroy(collision.gameObject);
+
+        }
+
+        if (collision.gameObject.tag == "MissileEnemy")
+        {
+            manager.hp = manager.hp - 5;
+            Instantiate(hitEffect1, gameObject.transform.position, Quaternion.identity);
 
             if (manager.hp < 1)
             {

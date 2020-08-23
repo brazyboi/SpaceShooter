@@ -12,10 +12,12 @@ public class RestartGameScript : GameBase
     {
         base.init();
         restart.onClick.AddListener(restartGame);
+        
     }
 
     void restartGame()
     {
+        manager.running = true;
         Destroy(gameObject);
         manager.startMenu();
     }

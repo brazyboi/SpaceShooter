@@ -30,6 +30,12 @@ public class EnemyWaveSpawnScript : GameBase
         while (manager.running)
         {
             yield return new WaitForSeconds(waveWaitTime);
+
+            if (!manager.running)
+            {
+                break;
+            }
+
             GameObject wave;
             int rand = Random.Range(1, 6);
             switch (rand)

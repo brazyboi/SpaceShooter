@@ -902,7 +902,7 @@ MonoBehaviour:
     type: 3}
   enemyWave6: {fileID: 737817976110117452, guid: 9ec6c643a0fbf584aa38daeab700d555,
     type: 3}
-  waveWaitTime: 10
+  waveWaitTime: 15
 --- !u!4 &2061766332
 Transform:
   m_ObjectHideFlags: 0

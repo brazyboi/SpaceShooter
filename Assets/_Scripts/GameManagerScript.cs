@@ -61,7 +61,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void onPlayerDeath()
     {
-        if (numOfPlanes < 1)
+        /* (numOfPlanes < 1)
         {
             gameOver();
         }
@@ -70,9 +70,9 @@ public class GameManagerScript : MonoBehaviour
             //destroy current player
             //create a new plane
             createPlayer();
-        }
+        }*/
 
-
+        gameOver();
     }
 
     public void getBomb()

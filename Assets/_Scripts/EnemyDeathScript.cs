@@ -25,6 +25,10 @@ public class EnemyDeathScript : GameBase
 
             if (enemyHealth < 1)
             {
+                if (gameObject.tag == "Boss")
+                {
+                    manager.score = manager.score + 9;
+                }
                 manager.score++;
                 enemyDeath();
             }
@@ -38,6 +42,10 @@ public class EnemyDeathScript : GameBase
             enemyHealth = enemyHealth - 3;
             if (enemyHealth < 1)
             {
+                if (gameObject.tag == "Boss")
+                {
+                    manager.score = manager.score + 9;
+                }
                 manager.score++;
                 enemyDeath();
             }
@@ -52,6 +60,10 @@ public class EnemyDeathScript : GameBase
 
             if (enemyHealth < 1)
             {
+                if (gameObject.tag == "Boss")
+                {
+                    manager.score = manager.score + 9;
+                }
                 manager.score++;
                 enemyDeath();
             }
