@@ -26,6 +26,10 @@ public class CreateEnemyScript : GameBase
     {
         while (manager.running)
         {
+            if (!manager.running)
+            {
+                break;
+            }
             xPos = UnityEngine.Random.Range(-Screen.width + 100, Screen.width - 100)/100;
 
             GameObject enemy;
@@ -53,11 +57,11 @@ public class CreateEnemyScript : GameBase
     {
         while (manager.running)
         {
-            yield return new WaitForSeconds(bossWaitTime);
             if (!manager.running)
             {
                 break;
             }
+            yield return new WaitForSeconds(bossWaitTime);
             Instantiate(boss, new Vector3(0, 7, 0), Quaternion.identity);   
         }
     }

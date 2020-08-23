@@ -15,6 +15,14 @@ public class SpeedUpParticleSystemScript : MonoBehaviour
     void Update()
     {
         var main = ps.main;
-        main.simulationSpeed = 8;
+        if (gameObject.tag == "BulletHitEffect")
+        {
+            main.simulationSpeed = 10;
+        } 
+        if (gameObject.tag == "MissileHitEffect")
+        {
+            main.simulationSpeed = 10;
+        }
+        
     }
 }

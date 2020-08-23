@@ -81,6 +81,8 @@ MonoBehaviour:
     type: 3}
   hitEffectBullet: {fileID: 7039365272472429018, guid: 90c9aafc11778454c8b5809156efccb7,
     type: 3}
+  hitEffectMissile: {fileID: 2383538324989866472, guid: 816e1cf71789ccd49b6a6f6c6a9ee34f,
+    type: 3}
   plane: {fileID: 2075819064120586122}
   enemyHealth: 100
 --- !u!54 &4328032373840202120

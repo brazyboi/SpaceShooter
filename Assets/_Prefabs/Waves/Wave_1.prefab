@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 8020552535674459734, guid: fab6851c23f45a8439ae5c6a709fe8c6, type: 3}
   count: 6
-  speed: 30
+  speed: 37.5
   timeBetween: 0.5
   pathPoints:
   - {fileID: 6150673645369779869}
@@ -57,10 +57,6 @@ MonoBehaviour:
   rotationByPath: 0
   Loop: 0
   pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  shooting:
-    shotChance: 40
-    shotTimeMin: 0.6
-    shotTimeMax: 2.6
   testMode: 0
 --- !u!1 &6146559482482274481
 GameObject:

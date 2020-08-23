@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEngine;
 
 public class PlayerScript : GameBase
@@ -30,6 +29,7 @@ public class PlayerScript : GameBase
     void Start()
     {
         base.init();
+
         StartCoroutine(Fire());
         StartCoroutine(fireMissile());
     }

@@ -7,6 +7,7 @@ public class EnemyDeathScript : GameBase
 {
     public GameObject explosion;
     public GameObject hitEffectBullet;
+    public GameObject hitEffectMissile;
 
     public Transform plane;
     public int enemyHealth;
@@ -39,6 +40,7 @@ public class EnemyDeathScript : GameBase
 
         if (collision.gameObject.tag == "Missile")
         {
+            Instantiate(hitEffectMissile, gameObject.transform.position, Quaternion.identity);
             enemyHealth = enemyHealth - 3;
             if (enemyHealth < 1)
             {

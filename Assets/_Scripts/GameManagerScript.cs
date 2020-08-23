@@ -16,12 +16,15 @@ public class GameManagerScript : MonoBehaviour
     public GameObject menuPrefab;
     public GameObject inGamePrefab;
 
+    AudioSource deathEffect;
+
     private GameObject inGame;
 
     // Start is before the first frame update
     void Start()
     {
-        gameStart();    
+        gameStart();
+        deathEffect = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class GameManagerScript : MonoBehaviour
 
     void gameOver()
     {
+        deathEffect.Play(0);
         running = false;
         Instantiate(gameOverPrefab);
         Destroy(inGame);
@@ -54,7 +58,7 @@ public class GameManagerScript : MonoBehaviour
 
         running = true;
         inGame = Instantiate(inGamePrefab);
-        hp = 20;
+        hp = 30;
         score = 0;
         Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
     }
