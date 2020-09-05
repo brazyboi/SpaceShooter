@@ -28,6 +28,8 @@ public class PlayerScript : GameBase
     Vector3 mousePosition;
     Vector3 direction;
 
+    Vector3 targetPos;
+
     public Transform plane;
 
     Boolean firing = true;
@@ -38,6 +40,7 @@ public class PlayerScript : GameBase
         base.init();
 
         rb = GetComponent<Rigidbody>();
+        targetPos = transform.position;
 
         StartCoroutine(Fire());
         StartCoroutine(fireMissile());
@@ -63,16 +66,13 @@ public class PlayerScript : GameBase
         transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime);
         //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0;
-            direction = (mousePosition - transform.position).normalized;
-            rb.velocity = new Vector3(direction.x * moveSpeed, direction.y * moveSpeed, 0);
+            targetPos = new Vector3(mousePosition.x, mousePosition.y, 0);
 
-        } else
-        {
-            rb.velocity = Vector3.zero;
+            Vector3 follow = new Vector3(targetPos.x, targetPos.y, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, follow, moveSpeed * Time.deltaTime);
         }
 
 

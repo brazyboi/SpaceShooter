@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedX: 0
-  speedY: -10
+  speedY: -20
 --- !u!1001 &4404069729568450316
 PrefabInstance:
   m_ObjectHideFlags: 0

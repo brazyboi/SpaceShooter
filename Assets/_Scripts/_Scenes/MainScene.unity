@@ -606,6 +606,7 @@ MonoBehaviour:
   counter: 0
   running: 0
   numOfPowerUps: 0
+  level: 0
   waitTime: 4
   numOfBosses: 0
   playerPrefab: {fileID: 5162909563815682302, guid: c297f845b4a161b4bb5cca7040ad2543,

@@ -18,7 +18,6 @@ public class EnemyScript : GameBase
     {
         base.init();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        fireRate = fireRate - manager.numOfBosses * 1/8;
 
         StartCoroutine(Fire());
     }
