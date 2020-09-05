@@ -63,7 +63,7 @@ public class EnemyDeathScript : GameBase
 
         if (collision.gameObject.tag == "Player")
         {
-            enemyHealth = enemyHealth - 5;
+            enemyHealth = enemyHealth - 20;
 
             if (enemyHealth < 1)
             {

@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletBoss: {fileID: 9165343355187811135, guid: d1e93b5e57a4c834982e7f8de435e631,
     type: 3}
-  spreadFireRate: 7.5
+  spreadFireRate: 8
   LeftGun1: {fileID: 6727744023938189660}
   LeftGun2: {fileID: 7048364121839712668}
   RightGun1: {fileID: 8642478951856907477}

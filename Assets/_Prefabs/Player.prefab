@@ -164,8 +164,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3109541, y: 1.5609927, z: 1}
-  m_Center: {x: 0.01629734, y: -0.030496359, z: 0}
+  m_Size: {x: 1.3109541, y: 1.1347256, z: 1}
+  m_Center: {x: 0.01629734, y: -0.24362993, z: 0}
 --- !u!114 &5162909563815682303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +359,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5162909563815682275}
     m_Modifications:
+    - target: {fileID: 5804636589892124100, guid: fc93b2c29a85c174d99fb335e1418cb7,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.93456817
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804636589892124100, guid: fc93b2c29a85c174d99fb335e1418cb7,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.152211
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804636589892124100, guid: fc93b2c29a85c174d99fb335e1418cb7,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0027714968
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804636589892124100, guid: fc93b2c29a85c174d99fb335e1418cb7,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.23488724
+      objectReference: {fileID: 0}
     - target: {fileID: 5804636589892124103, guid: fc93b2c29a85c174d99fb335e1418cb7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -439,6 +459,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5162909563815682275}
     m_Modifications:
+    - target: {fileID: 5804636589892124100, guid: fc93b2c29a85c174d99fb335e1418cb7,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.89690614
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804636589892124100, guid: fc93b2c29a85c174d99fb335e1418cb7,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.1160173
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804636589892124100, guid: fc93b2c29a85c174d99fb335e1418cb7,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.010434985
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804636589892124100, guid: fc93b2c29a85c174d99fb335e1418cb7,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.25298405
+      objectReference: {fileID: 0}
     - target: {fileID: 5804636589892124103, guid: fc93b2c29a85c174d99fb335e1418cb7,
         type: 3}
       propertyPath: m_LocalPosition.x

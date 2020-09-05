@@ -55,7 +55,7 @@ public class PlayerScript : GameBase
     void Update()
     {
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -Screen.width/100+1, Screen.width/100-1),
-            Mathf.Clamp(transform.position.y, -Screen.height/100+1, Screen.height/100-2), transform.position.z);
+            Mathf.Clamp(transform.position.y, -Screen.height/100+1, Screen.height/100-1), transform.position.z);
 
         float horizontalInput = Input.GetAxis("Horizontal");
         //Get the value of the Horizontal input axis.
@@ -255,16 +255,16 @@ public class PlayerScript : GameBase
                 case 11:
                     waitTime = fireRate / 6;
                     numOfGuns = 3;
-                    numOfMissiles = 3;
-                    missileFireRate = 1f;
-                    manager.numOfPlanes = 2;
+                    numOfMissiles = 2;
+                    missileFireRate = 1.25f;
+                    manager.numOfPlanes = 3;
                     break;
                 default:
                     waitTime = fireRate / 6;
                     numOfGuns = 3;
-                    numOfMissiles = 2;
-                    missileFireRate = 1.25f;
-                    manager.numOfPlanes = 3;
+                    numOfMissiles = 3;
+                    missileFireRate = 1f;
+                    manager.numOfPlanes = 2;
                     break;
             }
 
