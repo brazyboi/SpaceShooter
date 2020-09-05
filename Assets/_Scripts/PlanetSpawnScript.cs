@@ -12,7 +12,7 @@ public class PlanetSpawnScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(spawnPlanet());
+        //StartCoroutine(spawnPlanet());
     }
 
     // Update is called once per frame
