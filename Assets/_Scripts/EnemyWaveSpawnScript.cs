@@ -12,6 +12,7 @@ public class EnemyWaveSpawnScript : GameBase
     public GameObject enemyWave6;
 
     int count = 0;
+    int firstWave = 0;
 
     public float waveWaitTime = 20.0f;
     // Start is called before the first frame update
@@ -39,8 +40,15 @@ public class EnemyWaveSpawnScript : GameBase
     {
         while (manager.running)
         {
+            if (firstWave < 1)
+            {
+                yield return new WaitForSeconds(waveWaitTime * 2);
+                firstWave++;
 
-            yield return new WaitForSeconds(waveWaitTime);
+            } else
+            {
+                yield return new WaitForSeconds(waveWaitTime);
+            }
 
             if (!manager.running)
             {

@@ -12,6 +12,7 @@ public class GameManagerScript : MonoBehaviour
     public int counter = 0;
     public Boolean running = true;
     public int numOfPowerUps = 0;
+    public int level = 0;
 
     public float waitTime = 4.0f;
     public float numOfBosses = 0;
@@ -99,6 +100,7 @@ public class GameManagerScript : MonoBehaviour
     {
         counter = 0;
         waitTime = 4.0f;
+        numOfBosses = 0;
 
         destroyEverything();
 

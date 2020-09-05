@@ -25,7 +25,7 @@ public class CreateEnemyScript : GameBase
 
     private void Update()
     {
-        if (manager.waitTime > 1.5f && count < manager.numOfBosses)
+        if (manager.waitTime > 2.0f && count < manager.numOfBosses)
         {
             manager.waitTime -= (manager.numOfBosses * 0.5f);
             if (count < 5)

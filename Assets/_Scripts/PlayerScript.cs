@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerScript : GameBase
 {
@@ -22,6 +24,10 @@ public class PlayerScript : GameBase
     GameObject miniPlane1;
     GameObject miniPlane2;
 
+    Rigidbody rb;
+    Vector3 mousePosition;
+    Vector3 direction;
+
     public Transform plane;
 
     Boolean firing = true;
@@ -30,6 +36,8 @@ public class PlayerScript : GameBase
     void Start()
     {
         base.init();
+
+        rb = GetComponent<Rigidbody>();
 
         StartCoroutine(Fire());
         StartCoroutine(fireMissile());
@@ -43,7 +51,8 @@ public class PlayerScript : GameBase
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = gameObject.transform.position;
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -Screen.width/100+1, Screen.width/100-1),
+            Mathf.Clamp(transform.position.y, -Screen.height/100+1, Screen.height/100-2), transform.position.z);
 
         float horizontalInput = Input.GetAxis("Horizontal");
         //Get the value of the Horizontal input axis.
@@ -53,6 +62,19 @@ public class PlayerScript : GameBase
 
         transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime);
         //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0;
+            direction = (mousePosition - transform.position).normalized;
+            rb.velocity = new Vector3(direction.x * moveSpeed, direction.y * moveSpeed, 0);
+
+        } else
+        {
+            rb.velocity = Vector3.zero;
+        }
+
 
         if (manager.numOfPlanes == 2)
         {
@@ -230,6 +252,13 @@ public class PlayerScript : GameBase
                     missileFireRate = 1f;
                     manager.numOfPlanes = 2;
                     break;
+                case 11:
+                    waitTime = fireRate / 6;
+                    numOfGuns = 3;
+                    numOfMissiles = 3;
+                    missileFireRate = 1f;
+                    manager.numOfPlanes = 2;
+                    break;
                 default:
                     waitTime = fireRate / 6;
                     numOfGuns = 3;
@@ -273,6 +302,11 @@ public class PlayerScript : GameBase
             {
                 Instantiate(missile, leftgun.transform.position, Quaternion.identity);
                 Instantiate(missile, rightgun.transform.position, Quaternion.identity);
+            } else if (numOfMissiles == 3)
+            {
+                Instantiate(missile, leftgun.transform.position, Quaternion.identity);
+                Instantiate(missile, rightgun.transform.position, Quaternion.identity);
+                Instantiate(missile, centerGun.transform.position, Quaternion.identity);
             }
             yield return new WaitForSeconds(missileFireRate);
         }

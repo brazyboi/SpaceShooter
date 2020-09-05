@@ -181,7 +181,6 @@ MonoBehaviour:
   moveSpeed: 7.5
   fireRate: 1
   missileFireRate: 2
-  numOfPowerUps: 10
   numOfBombs: 0
   leftgun: {fileID: 8626267896621316694}
   rightgun: {fileID: 8310197101385215626}
@@ -205,7 +204,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
