@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerScript : GameBase
 {
@@ -70,9 +67,14 @@ public class PlayerScript : GameBase
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPos = new Vector3(mousePosition.x, mousePosition.y, 0);
+            direction = (mousePosition - transform.position).normalized;
 
             Vector3 follow = new Vector3(targetPos.x, targetPos.y, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, follow, moveSpeed * Time.deltaTime);
+            rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
+        } else
+        {
+            rb.velocity = Vector2.zero;
         }
 
 
