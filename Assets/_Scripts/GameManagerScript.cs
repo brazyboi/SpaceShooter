@@ -98,6 +98,7 @@ public class GameManagerScript : MonoBehaviour
     public void gameStart()
     {
         counter = 0;
+        waitTime = 4.0f;
 
         destroyEverything();
 

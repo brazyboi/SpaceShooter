@@ -78,7 +78,9 @@ public class PlayerScript : GameBase
             if (manager.numOfPowerUps < 12)
             {
                 manager.numOfPowerUps++;
-                print(manager.numOfPowerUps);
+            } else
+            {
+                manager.hp = manager.hp + 25 * (int)(manager.numOfBosses);
             }
 
             Destroy(collision.gameObject);

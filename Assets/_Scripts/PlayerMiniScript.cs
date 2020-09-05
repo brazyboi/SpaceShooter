@@ -30,6 +30,20 @@ public class PlayerMiniScript : GameBase
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "PowerUp")
+        {
+            if (manager.numOfPowerUps < 12)
+            {
+                manager.numOfPowerUps++;
+            }
+            else
+            {
+                manager.hp = manager.hp + 25 * (int)(manager.numOfBosses);
+            }
+
+            Destroy(collision.gameObject);
+
+        }
         if (collision.gameObject.tag == "BulletEnemy")
         {
             manager.hp = (int)(manager.hp - 1 - manager.numOfBosses);
