@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyScript : GameBase
 {
     public float speed = 1.0f;
     public float fireRate = 0.5f;
@@ -16,7 +16,9 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        base.init();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        fireRate = fireRate - manager.numOfBosses * 1/8;
 
         StartCoroutine(Fire());
     }
@@ -65,6 +67,11 @@ public class EnemyScript : MonoBehaviour
 
             Instantiate(enemyBullet, gameObject.transform.position, Quaternion.identity);
             enemyBullet.transform.position = gameObject.transform.position;
+
+            if (gameObject.tag != "Boss")
+            {
+                fireRate = fireRate + 1 / (manager.numOfBosses + 1);
+            }
 
             yield return new WaitForSeconds(fireRate);
 

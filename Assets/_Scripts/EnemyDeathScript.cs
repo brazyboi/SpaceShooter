@@ -15,6 +15,11 @@ public class EnemyDeathScript : GameBase
     void Start()
     {
         base.init();
+        enemyHealth = (int)(enemyHealth + manager.numOfBosses * 2);
+        if (gameObject.tag == "Boss")
+        {
+            enemyHealth = (int)(enemyHealth + manager.numOfBosses * 100);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -22,13 +27,13 @@ public class EnemyDeathScript : GameBase
         if (collision.gameObject.tag == "Bullet")
         {
             Instantiate(hitEffectBullet, gameObject.transform.position, Quaternion.identity);
-            enemyHealth--;
+            enemyHealth = enemyHealth - 2;
 
             if (enemyHealth < 1)
             {
                 if (gameObject.tag == "Boss")
                 {
-                    manager.score = manager.score + 9;
+                    manager.score = manager.score + 99;
                 }
                 manager.score++;
                 enemyDeath();

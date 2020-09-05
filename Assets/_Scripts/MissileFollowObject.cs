@@ -30,6 +30,14 @@ public class MissileFollowObject : MonoBehaviour
         Vector3 vectorToTarget = target.transform.position - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
 
+        if (angle < 90 && angle >= 80)
+        {
+            rotationSpeed = 10;
+        } else if (angle < 80 && angle >= 70)
+        {
+            rotationSpeed = 20;
+        }
+
         if (angle < 90 && angle > -90)
         {
             angle = angle - 90;
@@ -57,6 +65,14 @@ public class MissileFollowObject : MonoBehaviour
             target = GameObject.FindGameObjectWithTag("FakeMissileTarget");
 
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "FakeMissileTarget")
+        {
+            Destroy(gameObject);
+        }    
     }
 
 }

@@ -18,7 +18,7 @@ public class SpawnPowerUpScript : GameBase
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()   
     {
         
     }

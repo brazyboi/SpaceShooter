@@ -17,6 +17,10 @@ TagManager:
   - MissileEnemy
   - BulletHitEffect
   - MissileHitEffect
+  - Boss
+  - PlayerMini1
+  - PlayerMini2
+  - Spawn
   layers:
   - Default
   - TransparentFX

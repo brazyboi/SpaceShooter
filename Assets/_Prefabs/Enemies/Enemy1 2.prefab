@@ -143,9 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2425d32d618f7340a6c076e940f0538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -1
-  fireRate: 2
-  enemyBullet: {fileID: 4836163810512927894, guid: 0e9d72cf7c0fb4e449137d3d43380b16,
+  speed: -0.75
+  fireRate: 1.5
+  enemyBullet: {fileID: 1506982605075724638, guid: 97da08bcd426cf744954f99f2c571ea2,
     type: 3}
 --- !u!114 &3772332993735364383
 MonoBehaviour:
@@ -166,7 +166,7 @@ MonoBehaviour:
   hitEffectMissile: {fileID: 2383538324989866472, guid: 816e1cf71789ccd49b6a6f6c6a9ee34f,
     type: 3}
   plane: {fileID: 6868108168906421779}
-  enemyHealth: 5
+  enemyHealth: 4
 --- !u!54 &7513605501578610996
 Rigidbody:
   m_ObjectHideFlags: 0

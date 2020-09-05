@@ -11,7 +11,8 @@ public class CreateEnemyScript : GameBase
     public GameObject boss;
 
     float xPos;
-    public float waitTime = 3.0f;
+    int count = 0;
+    
     public float bossWaitTime = 30.0f;
 
     // Start is called before the first frame update
@@ -22,34 +23,47 @@ public class CreateEnemyScript : GameBase
         StartCoroutine(bossSpawn());
     }
 
+    private void Update()
+    {
+        if (manager.waitTime > 1.5f && count < manager.numOfBosses)
+        {
+            manager.waitTime -= (manager.numOfBosses * 0.5f);
+            if (count < 5)
+            {
+                count++;
+            }
+            
+        }
+    }
+
     IEnumerator enemySpawn()
     {
         while (manager.running)
         {
+            yield return new WaitForSeconds(manager.waitTime);   
+
             if (!manager.running)
             {
                 break;
             }
-            xPos = UnityEngine.Random.Range(-Screen.width + 100, Screen.width - 100)/100;
+            xPos = UnityEngine.Random.Range(-Screen.width + 150, Screen.width - 150)/100;
 
             GameObject enemy;
 
-            if (UnityEngine.Random.Range(1, 3) == 1)
+            if (UnityEngine.Random.Range(1, 4) == 1)
             {
-                enemy = enemy1;
-            } else if (UnityEngine.Random.Range(1, 3) == 2)
+                enemy = enemy3;
+            } else if (UnityEngine.Random.Range(1, 4) == 2)
             {
                 enemy = enemy2;
             } else
             {
-                enemy = enemy3;
+                enemy = enemy1;
             }
 
             Instantiate(enemy, new Vector3(xPos, 7, 0), Quaternion.identity);
 
-            yield return new WaitForSeconds(waitTime);
-
-
+            
         }
     }
 
@@ -62,7 +76,10 @@ public class CreateEnemyScript : GameBase
                 break;
             }
             yield return new WaitForSeconds(bossWaitTime);
-            Instantiate(boss, new Vector3(0, 7, 0), Quaternion.identity);   
+            manager.numOfBosses++;
+            Instantiate(boss, new Vector3(0, 7.5f, 0), Quaternion.identity);
+              
+
         }
     }
 
