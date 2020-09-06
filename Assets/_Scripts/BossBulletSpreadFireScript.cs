@@ -28,8 +28,8 @@ public class BossBulletSpreadFireScript : GameBase
     {
         if (spreadFireRate > 5.0f && count < manager.numOfBosses)
         {
-            manager.waitTime -= manager.numOfBosses * 1.0f;
-            if (count < 10)
+            spreadFireRate -= manager.numOfBosses * 1.0f;
+            if (count < 4)
             {
                 count++;
             }
