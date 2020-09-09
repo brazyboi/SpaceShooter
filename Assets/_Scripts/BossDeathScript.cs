@@ -14,7 +14,7 @@ public class BossDeathScript : GameBase
     void Start()
     {
         base.init();
-        manager.bossHP = (int)(manager.bossHP + manager.numOfBosses * 100);
+        manager.bossHP = (int)(manager.bossHP + manager.numOfBosses * 150);
         
     }
 
