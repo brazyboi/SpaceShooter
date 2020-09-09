@@ -51,6 +51,7 @@ public class EnemyScript : GameBase
         {
             firing = false;
         }
+        
 
     }
 

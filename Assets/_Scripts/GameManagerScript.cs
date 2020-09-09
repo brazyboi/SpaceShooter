@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +12,10 @@ public class GameManagerScript : MonoBehaviour
     public int numOfPlanes;
     public int counter = 0;
     public Boolean running = true;
+    public Boolean runningWave = false;
     public int numOfPowerUps = 0;
-    public int level = 0;
+
+    public int bossHP = 1;
 
     public float waitTime = 4.0f;
     public float numOfBosses = 0;
@@ -105,7 +108,8 @@ public class GameManagerScript : MonoBehaviour
         destroyEverything();
 
         inGame = Instantiate(inGamePrefab);
-        running = true; 
+        running = true;
+        runningWave = true;
         hp = 100;
         score = 0;
         Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);

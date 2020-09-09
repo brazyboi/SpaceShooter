@@ -62,9 +62,10 @@ public class Wave : MonoBehaviour {
         {
             yield return new WaitForSeconds(3);
             StartCoroutine(CreateEnemyWave());
+        } else if (!Loop)
+        {
+            Destroy(gameObject);
         }
-        else if (!Loop)
-            Destroy(gameObject); 
     }
 
     void OnDrawGizmos()  

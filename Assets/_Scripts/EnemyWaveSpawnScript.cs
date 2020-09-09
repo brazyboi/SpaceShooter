@@ -38,48 +38,50 @@ public class EnemyWaveSpawnScript : GameBase
 
     IEnumerator enemyWaveSpawn()
     {
-        while (manager.running)
+        while (true)
         {
-            if (firstWave < 1)
+            if (manager.runningWave)
             {
-                yield return new WaitForSeconds(waveWaitTime * 2);
-                firstWave++;
+                if (firstWave < 1)
+                {
+                    yield return new WaitForSeconds(waveWaitTime * 2);
+                    firstWave++;
 
+                }
+                else
+                {
+                    yield return new WaitForSeconds(waveWaitTime);
+                }
+
+                GameObject wave;
+                int rand = Random.Range(1, 6);
+                switch (rand)
+                {
+                    case 1:
+                        wave = enemyWave1;
+                        break;
+                    case 2:
+                        wave = enemyWave2;
+                        break;
+                    case 3:
+                        wave = enemyWave3;
+                        break;
+                    case 4:
+                        wave = enemyWave4;
+                        break;
+                    case 5:
+                        wave = enemyWave5;
+                        break;
+                    default:
+                        wave = enemyWave6;
+                        break;
+                }
+
+                Instantiate(wave, new Vector3(0, 0, 0), Quaternion.identity);
             } else
             {
-                yield return new WaitForSeconds(waveWaitTime);
+                yield return new WaitForSeconds(0.1f);
             }
-
-            if (!manager.running)
-            {
-                break;
-            }
-
-            GameObject wave;
-            int rand = Random.Range(1, 6);
-            switch (rand)
-            {
-                case 1:
-                    wave = enemyWave1;
-                    break;
-                case 2:
-                    wave = enemyWave2;
-                    break;
-                case 3:
-                    wave = enemyWave3;
-                    break;
-                case 4:
-                    wave = enemyWave4;
-                    break;
-                case 5:
-                    wave = enemyWave5;
-                    break;
-                default:
-                    wave = enemyWave6;
-                    break;
-            }
-
-            Instantiate(wave, new Vector3(0, 0, 0), Quaternion.identity);
 
         }
     }

@@ -28,7 +28,7 @@ public class CreateEnemyScript : GameBase
         if (manager.waitTime > 2.0f && count < manager.numOfBosses)
         {
             manager.waitTime -= (manager.numOfBosses * 0.5f);
-            if (count < 5)
+            if (count < 4)
             {
                 count++;
             }
@@ -38,47 +38,51 @@ public class CreateEnemyScript : GameBase
 
     IEnumerator enemySpawn()
     {
-        while (manager.running)
+        while (true)
         {
-            yield return new WaitForSeconds(manager.waitTime);   
-
-            if (!manager.running)
+            if (manager.running)
             {
-                break;
-            }
-            xPos = UnityEngine.Random.Range(-Screen.width + 150, Screen.width - 150)/100;
 
-            GameObject enemy;
+                yield return new WaitForSeconds(manager.waitTime);
+                xPos = UnityEngine.Random.Range(-Screen.width / 100 + 2, Screen.width / 100 - 2);
 
-            if (UnityEngine.Random.Range(1, 4) == 1)
-            {
-                enemy = enemy3;
-            } else if (UnityEngine.Random.Range(1, 4) == 2)
-            {
-                enemy = enemy2;
+                GameObject enemy;
+
+                if (UnityEngine.Random.Range(1, 4) == 1)
+                {
+                    enemy = enemy3;
+                }
+                else if (UnityEngine.Random.Range(1, 4) == 2)
+                {
+                    enemy = enemy2;
+                }
+                else
+                {
+                    enemy = enemy1;
+                }
+
+                Instantiate(enemy, new Vector3(xPos, 7, 0), Quaternion.identity);
+
             } else
             {
-                enemy = enemy1;
+                yield return new WaitForSeconds(0.1f);
             }
-
-            Instantiate(enemy, new Vector3(xPos, 7, 0), Quaternion.identity);
-
-            
         }
     }
 
     IEnumerator bossSpawn()
     {
-        while (manager.running)
+        while (true)
         {
-            if (!manager.running)
+            if (manager.running)
             {
-                break;
+                yield return new WaitForSeconds(bossWaitTime);
+                manager.numOfBosses++;
+                Instantiate(boss, new Vector3(0, 8f, 0), Quaternion.identity);
+            } else
+            {
+                yield return new WaitForSeconds(0.1f);
             }
-            yield return new WaitForSeconds(bossWaitTime);
-            manager.numOfBosses++;
-            Instantiate(boss, new Vector3(0, 7.5f, 0), Quaternion.identity);
-              
 
         }
     }

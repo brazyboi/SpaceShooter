@@ -7,7 +7,7 @@ public class SpawnPowerUpScript : GameBase
 {
 
     public GameObject powerup;
-    public int xPos;
+    public float xPos;
     public float waitTime = 5.0f;
 
     // Start is called before the first frame update
@@ -25,12 +25,19 @@ public class SpawnPowerUpScript : GameBase
 
     IEnumerator powerupSpawn()
     {
-        while (manager.running)
+        while (true)
         {
-            yield return new WaitForSeconds(waitTime);
-            xPos = UnityEngine.Random.Range(-Screen.width / 100 + 1, Screen.width / 100-1);
+            if (manager.running)
+            {
+                yield return new WaitForSeconds(waitTime);
+                xPos = UnityEngine.Random.Range(-Screen.width + 200, Screen.width - 200) / 100;
 
-            Instantiate(powerup, new Vector3(xPos, 7, 0), Quaternion.identity);
+                Instantiate(powerup, new Vector3(xPos, 7, 0), Quaternion.identity);
+            } else
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+            
         }
 
     }

@@ -15,9 +15,14 @@ public class MissileFollowObject : MonoBehaviour
         if (target == null)
         {
 
-            target = GameObject.FindGameObjectWithTag("FakeMissileTarget");
+            target = GameObject.FindGameObjectWithTag("Boss");
 
         } 
+
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("FakeMissileTarget");
+        }
         
     }
 
@@ -59,6 +64,12 @@ public class MissileFollowObject : MonoBehaviour
         {
             target = GameObject.FindGameObjectWithTag("Enemy");
         }
+
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Boss");
+        }
+
         if (target == null)
         {
 

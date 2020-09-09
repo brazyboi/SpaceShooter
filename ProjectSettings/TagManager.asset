@@ -21,6 +21,7 @@ TagManager:
   - PlayerMini1
   - PlayerMini2
   - Spawn
+  - BossHp
   layers:
   - Default
   - TransparentFX

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DisplayScoreAfterScript : GameBase
 {
-    public Text scoreAfter;
+    public TextMeshProUGUI scoreAfter;
     int score;
 
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class DisplayScoreAfterScript : GameBase
     void Update()
     {
         score = manager.score * 100;
-        scoreAfter.text = "Score is: " + score.ToString();
+        scoreAfter.text = "Score: " + score.ToString();
         print(score);
     }
 }

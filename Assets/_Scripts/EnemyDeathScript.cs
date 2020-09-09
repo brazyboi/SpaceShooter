@@ -22,6 +22,12 @@ public class EnemyDeathScript : GameBase
         }
     }
 
+    void Update()
+    {
+        
+
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bullet")
@@ -33,7 +39,7 @@ public class EnemyDeathScript : GameBase
             {
                 if (gameObject.tag == "Boss")
                 {
-                    manager.score = manager.score + 99;
+                    manager.score = manager.score + 29;
                 }
                 manager.score++;
                 enemyDeath();
@@ -46,12 +52,12 @@ public class EnemyDeathScript : GameBase
         if (collision.gameObject.tag == "Missile")
         {
             Instantiate(hitEffectMissile, gameObject.transform.position, Quaternion.identity);
-            enemyHealth = enemyHealth - 3;
+            enemyHealth = enemyHealth - 4;
             if (enemyHealth < 1)
             {
                 if (gameObject.tag == "Boss")
                 {
-                    manager.score = manager.score + 9;
+                    manager.score = manager.score + 49;
                 }
                 manager.score++;
                 enemyDeath();
@@ -69,7 +75,7 @@ public class EnemyDeathScript : GameBase
             {
                 if (gameObject.tag == "Boss")
                 {
-                    manager.score = manager.score + 9;
+                    manager.score = manager.score + 29;
                 }
                 manager.score++;
                 enemyDeath();

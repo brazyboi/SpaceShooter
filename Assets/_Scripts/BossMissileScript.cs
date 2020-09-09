@@ -7,13 +7,24 @@ public class BossMissileScript : GameBase
 {
     public float fireRate;
     Boolean firing = true;
+    int count;
 
     public GameObject missile;
     // Start is called before the first frame update
     void Start()
     {
         base.init();
-        StartCoroutine(fireMissile());
+
+        count = 0;
+    }
+
+    private void Update()
+    {
+        if (manager.numOfBosses > 2 && count < 1)
+        {
+            StartCoroutine(fireMissile());
+            count++;
+        }
     }
 
     IEnumerator fireMissile()

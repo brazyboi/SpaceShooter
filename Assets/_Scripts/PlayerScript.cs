@@ -77,11 +77,9 @@ public class PlayerScript : GameBase
             rb.velocity = Vector2.zero;
         }
 
-
         if (manager.numOfPlanes == 2)
         {
             miniPlane1.SetActive(true);
-            miniPlane2.SetActive(false);
         }
         else if (manager.numOfPlanes == 3)
         {
@@ -104,7 +102,7 @@ public class PlayerScript : GameBase
                 manager.numOfPowerUps++;
             } else
             {
-                manager.hp = manager.hp + 25 * (int)(manager.numOfBosses);
+                manager.hp = manager.hp + 50;
             }
 
             Destroy(collision.gameObject);
@@ -164,6 +162,7 @@ public class PlayerScript : GameBase
 
             Destroy(collision.gameObject);
 
+            
         }
 
 
@@ -173,13 +172,6 @@ public class PlayerScript : GameBase
     void playerDeath()
     {
         manager.numOfPowerUps = 0;
-
-        GameObject playerMini1 = GameObject.FindGameObjectWithTag("PlayerMini1");
-
-        if (playerMini1 != null)
-        {
-            playerMini1.SetActive(false);
-        }
 
         manager.onPlayerDeath();
         GetComponent<Collider>().enabled = false;
@@ -266,7 +258,7 @@ public class PlayerScript : GameBase
                     numOfGuns = 3;
                     numOfMissiles = 3;
                     missileFireRate = 1f;
-                    manager.numOfPlanes = 2;
+                    manager.numOfPlanes = 3;
                     break;
             }
 

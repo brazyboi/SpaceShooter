@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2557738717401731578}
   - component: {fileID: 9004045562797989768}
-  - component: {fileID: 684165315566293035}
-  - component: {fileID: 6922021878059257763}
   - component: {fileID: 4328032373840202120}
   - component: {fileID: 1087499617952575381}
   - component: {fileID: -6758347407519146718}
+  - component: {fileID: 7900512213967446552}
+  - component: {fileID: 8804492644754261892}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -54,42 +54,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.755917, y: 3.3398323, z: 1}
   m_Center: {x: -0.006191492, y: -0.020425797, z: 0}
---- !u!114 &684165315566293035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3272202770419028337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2425d32d618f7340a6c076e940f0538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: -0.1
-  fireRate: 1
-  enemyBullet: {fileID: 8082164027651439524, guid: ab052f37fc1371148afe9f6deb253c18,
-    type: 3}
---- !u!114 &6922021878059257763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3272202770419028337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d9ba89bf5f381a44b9cab2e05bdea6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 8063656136720398738, guid: 611498ec4fd8b486b94c64da5195c7cd,
-    type: 3}
-  hitEffectBullet: {fileID: 7039365272472429018, guid: 90c9aafc11778454c8b5809156efccb7,
-    type: 3}
-  hitEffectMissile: {fileID: 2383538324989866472, guid: 816e1cf71789ccd49b6a6f6c6a9ee34f,
-    type: 3}
-  plane: {fileID: 2075819064120586122}
-  enemyHealth: 150
 --- !u!54 &4328032373840202120
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,12 +77,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3272202770419028337}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79dbfdc16fc99fa49a217d39a1a33ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
+  fireRate: 10
   missile: {fileID: 6879137732244305757, guid: 9773f5ea050c17c4baedc301c36046d7, type: 3}
 --- !u!114 &-6758347407519146718
 MonoBehaviour:
@@ -139,6 +103,41 @@ MonoBehaviour:
   LeftGun2: {fileID: 7048364121839712668}
   RightGun1: {fileID: 8642478951856907477}
   RightGun2: {fileID: 3980834339036798239}
+--- !u!114 &7900512213967446552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3272202770419028337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db17236199bd750458e78c4220ecd86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 8082164027651439524, guid: ab052f37fc1371148afe9f6deb253c18,
+    type: 3}
+  fireRate: 1
+  speed: -1
+--- !u!114 &8804492644754261892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3272202770419028337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56ca9f6e95547d428058f39e0d5660f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 8063656136720398738, guid: 611498ec4fd8b486b94c64da5195c7cd,
+    type: 3}
+  hitEffectBullet: {fileID: 7039365272472429018, guid: 90c9aafc11778454c8b5809156efccb7,
+    type: 3}
+  hitEffectMissile: {fileID: 2383538324989866472, guid: 816e1cf71789ccd49b6a6f6c6a9ee34f,
+    type: 3}
+  plane: {fileID: 2075819064120586122}
 --- !u!1 &3980834339036798239
 GameObject:
   m_ObjectHideFlags: 0
