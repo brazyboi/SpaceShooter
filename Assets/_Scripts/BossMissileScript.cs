@@ -6,6 +6,10 @@ using UnityEngine;
 public class BossMissileScript : GameBase
 {
     public float fireRate;
+
+    public GameObject leftGun;
+    public GameObject rightGun;
+
     Boolean firing = true;
     int count;
 
@@ -25,15 +29,24 @@ public class BossMissileScript : GameBase
             StartCoroutine(fireMissile());
             count++;
         }
+
+        if (fireRate > 5)
+        {
+            fireRate = 10 - manager.numOfBosses;
+        }
+
     }
 
     IEnumerator fireMissile()
     {
         while (firing)
         {
-            Instantiate(missile, gameObject.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(1f);
 
-            yield return new WaitForSeconds(fireRate);
+            Instantiate(missile, leftGun.transform.position, Quaternion.identity);
+            Instantiate(missile, rightGun.transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(fireRate-1f);
         }
     }
 }

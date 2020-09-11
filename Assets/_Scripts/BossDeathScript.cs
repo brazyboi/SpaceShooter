@@ -14,7 +14,7 @@ public class BossDeathScript : GameBase
     void Start()
     {
         base.init();
-        manager.bossHP = (int)(manager.bossHP + manager.numOfBosses * 150);
+        manager.bossHP = (int)(manager.bossHP + (manager.numOfBosses-1) * 500);
         
     }
 
@@ -83,6 +83,7 @@ public class BossDeathScript : GameBase
 
     void enemyDeath()
     {
+        manager.spreadCount = 0;
         GetComponent<Collider>().enabled = false;
         Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);

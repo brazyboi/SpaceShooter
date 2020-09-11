@@ -66,10 +66,6 @@ public class BossMoveScript : GameBase
 
         while (firing)
         {
-            if (!this.gameObject.activeSelf)
-            {
-                break;
-            }
 
             Instantiate(enemyBullet, gameObject.transform.position, Quaternion.identity);
             enemyBullet.transform.position = gameObject.transform.position;

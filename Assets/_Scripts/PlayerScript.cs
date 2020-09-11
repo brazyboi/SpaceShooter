@@ -51,8 +51,8 @@ public class PlayerScript : GameBase
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -Screen.width/100+1, Screen.width/100-1),
-            Mathf.Clamp(transform.position.y, -Screen.height/100+1, Screen.height/100-1), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -Screen.width/100+2, Screen.width/100-2),
+            Mathf.Clamp(transform.position.y, -Screen.height/100+2, Screen.height/100-2), transform.position.z);
 
         float horizontalInput = Input.GetAxis("Horizontal");
         //Get the value of the Horizontal input axis.

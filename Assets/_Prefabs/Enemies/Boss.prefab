@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2323511472919429696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7750974391421698318}
+  m_Layer: 0
+  m_Name: CenterGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7750974391421698318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323511472919429696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.76, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2557738717401731578}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3272202770419028337
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,6 +68,7 @@ Transform:
   - {fileID: 970340640162827815}
   - {fileID: 6344117520497270421}
   - {fileID: 3357149204141336795}
+  - {fileID: 7750974391421698318}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 10
+  leftGun: {fileID: 6727744023938189660}
+  rightGun: {fileID: 8642478951856907477}
   missile: {fileID: 6879137732244305757, guid: 9773f5ea050c17c4baedc301c36046d7, type: 3}
 --- !u!114 &-6758347407519146718
 MonoBehaviour:
@@ -98,11 +131,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletBoss: {fileID: 9165343355187811135, guid: d1e93b5e57a4c834982e7f8de435e631,
     type: 3}
-  spreadFireRate: 8
+  bulletBossSpread: {fileID: 1611919402541083195, guid: 2da01220d3e2ee44bb22b663b38ac2f2,
+    type: 3}
+  spreadFireRate: 6
   LeftGun1: {fileID: 6727744023938189660}
   LeftGun2: {fileID: 7048364121839712668}
   RightGun1: {fileID: 8642478951856907477}
   RightGun2: {fileID: 3980834339036798239}
+  centerGun: {fileID: 2323511472919429696}
 --- !u!114 &7900512213967446552
 MonoBehaviour:
   m_ObjectHideFlags: 0

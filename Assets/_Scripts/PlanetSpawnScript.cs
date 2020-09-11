@@ -12,7 +12,7 @@ public class PlanetSpawnScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(spawnPlanet());
+       // StartCoroutine(spawnPlanet());
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class PlanetSpawnScript : MonoBehaviour
 
             int xPos = Random.Range(-Screen.width + 150, Screen.width - 150) / 100;
 
-            Instantiate(targetPlanet, new Vector3(xPos, 7, 0), Quaternion.identity);
+            Instantiate(targetPlanet, new Vector3(xPos, 7, -5), Quaternion.identity);
 
         }
     }

@@ -17,20 +17,20 @@ public class MissileFollowObject : MonoBehaviour
 
             target = GameObject.FindGameObjectWithTag("Boss");
 
-        } 
+        }
 
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("FakeMissileTarget");
         }
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         findEnemy();
-        
+
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
         Vector3 vectorToTarget = target.transform.position - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
@@ -38,9 +38,38 @@ public class MissileFollowObject : MonoBehaviour
         if (angle < 90 && angle >= 80)
         {
             rotationSpeed = 10;
-        } else if (angle < 80 && angle >= 70)
+        }
+        else if (angle < 80 && angle >= 70)
         {
             rotationSpeed = 20;
+        }
+        else if (angle < 70 && angle >= 60)
+        {
+            rotationSpeed = 30;
+        }
+        else if (angle < 60 && angle >= 50)
+        {
+            rotationSpeed = 40;
+        }
+        else if (angle < 50 && angle >= 40)
+        {
+            rotationSpeed = 50;
+        }
+        else if (angle < 40 && angle >= 30)
+        {
+            rotationSpeed = 60;
+        }
+        else if (angle < 30 && angle >= 20)
+        {
+            rotationSpeed = 70;
+        }
+        else if (angle < 20 && angle >= 10)
+        {
+            rotationSpeed = 75;
+        }
+        else if (angle < 10 && angle >= 0)
+        {
+            rotationSpeed = 80;
         }
 
         if (angle < 90 && angle > -90)
@@ -50,7 +79,7 @@ public class MissileFollowObject : MonoBehaviour
         else if (angle == 90)
         {
             angle = 0;
-        } 
+        }
 
         Quaternion qt = Quaternion.AngleAxis(angle, Vector3.forward);
 
@@ -60,6 +89,7 @@ public class MissileFollowObject : MonoBehaviour
 
     void findEnemy()
     {
+
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Enemy");
@@ -76,6 +106,12 @@ public class MissileFollowObject : MonoBehaviour
             target = GameObject.FindGameObjectWithTag("FakeMissileTarget");
 
         }
+
+        if (target.transform.position.y < gameObject.transform.position.y)
+        {
+            findEnemy();
+        }
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -83,7 +119,7 @@ public class MissileFollowObject : MonoBehaviour
         if (collision.gameObject.tag == "FakeMissileTarget")
         {
             Destroy(gameObject);
-        }    
+        }
     }
 
 }

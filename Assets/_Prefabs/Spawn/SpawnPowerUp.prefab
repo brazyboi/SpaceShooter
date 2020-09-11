@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerup: {fileID: 5139336235507768915, guid: a7f5c426efbb6e045a9ab74767b086df, type: 3}
   xPos: 0
-  waitTime: 12
+  waitTime: 13
 --- !u!114 &426711658523135931
 MonoBehaviour:
   m_ObjectHideFlags: 0

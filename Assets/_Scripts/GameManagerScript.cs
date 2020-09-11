@@ -9,6 +9,7 @@ public class GameManagerScript : MonoBehaviour
 {
     public int score = 0;
     public int hp = 10;
+    public int spreadCount = 0;
     public int numOfPlanes;
     public int counter = 0;
     public Boolean running = true;
@@ -102,6 +103,7 @@ public class GameManagerScript : MonoBehaviour
     public void gameStart()
     {
         counter = 0;
+        spreadCount = 0;
         waitTime = 4.0f;
         numOfBosses = 0;
 

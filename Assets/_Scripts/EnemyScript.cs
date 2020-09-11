@@ -60,21 +60,17 @@ public class EnemyScript : GameBase
 
         while (firing)  
         {
-            if (!this.gameObject.activeSelf)
+            if (gameObject.activeSelf)
             {
-                break;
-            }
+                Instantiate(enemyBullet, gameObject.transform.position, Quaternion.identity);
+                enemyBullet.transform.position = gameObject.transform.position;
 
-            Instantiate(enemyBullet, gameObject.transform.position, Quaternion.identity);
-            enemyBullet.transform.position = gameObject.transform.position;
+                yield return new WaitForSeconds(fireRate);
 
-            if (gameObject.tag != "Boss")
+            } else
             {
-                fireRate = fireRate + 1 / (manager.numOfBosses + 1);
+                yield return new WaitForSeconds(0.1f);
             }
-
-            yield return new WaitForSeconds(fireRate);
-
         }
     }
 

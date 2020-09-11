@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -0.9
-  fireRate: 2.75
+  fireRate: 3.75
   enemyBullet: {fileID: 1506982605075724638, guid: 97da08bcd426cf744954f99f2c571ea2,
     type: 3}
 --- !u!114 &3772332993735364383
